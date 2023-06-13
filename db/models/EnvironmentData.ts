@@ -1,4 +1,4 @@
-/* import mongoose from "mongoose";
+import mongoose from "mongoose";
 
 const metricSchema = new mongoose.Schema({
   name: {
@@ -37,4 +37,4 @@ const environmentDataSchema = new mongoose.Schema({
   },
 });
 
-export const EnvironmentData = mongoose.model("EnvironmentData", environmentDataSchema); */
+export const EnvironmentData = mongoose.model("EnvironmentData", environmentDataSchema); 
