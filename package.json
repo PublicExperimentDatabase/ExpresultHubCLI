@@ -1,60 +1,30 @@
 {
-  
   "name": "publicexperimentcli",
-  
   "version": "1.0.0",
-  
   "description": "",
-  
   "main": "index.js",
-  
+  "preferGlobal": true,
+  "bin": "./commands.js",
   "scripts": {
-  
-    
-  "test": "echo \"Error: no test specified\" && exit 1"
-  
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  
   "repository": {
-  
-    
-  "type": "git",
-  
-    
-  "url": "git+https://github.com/PublicExperimentDatabase/PublicExperimentCLI.git"
-  
+    "type": "git",
+    "url": "git+https://github.com/PublicExperimentDatabase/PublicExperimentCLI.git"
   },
-  
   "author": "",
-  
   "license": "ISC",
-  
   "bugs": {
-  
-    
-  "url": "https://github.com/PublicExperimentDatabase/PublicExperimentCLI/issues"
-  
+    "url": "https://github.com/PublicExperimentDatabase/PublicExperimentCLI/issues"
   },
-  
   "homepage": "https://github.com/PublicExperimentDatabase/PublicExperimentCLI#readme",
-  
   "dependencies": {
-  
-    
-  "commander": "^10.0.1",
-  
-    
-  "inquirer": "^8.0.0",
-  
-    
-  "mongoose": "^7.2.2"
-  
+    "commander": "^10.0.1",
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.0.0",
+    "mongoose": "^7.2.2"
   },
-  
   "devDependencies": {
-  
-    
-  "@types/inquirer": "^9.0.3"
-  
+    "@types/inquirer": "^9.0.3"
   }
 }
