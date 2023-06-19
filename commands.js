@@ -2,6 +2,8 @@
 const program = require("commander");
 const { createExperiment } = require("./handlers/add-experiment");
 const { createIteration } = require("./handlers/add-iteration");
+const { startMonitor } = require("./handlers/start-monitor");
+const { stopMonitor } = require("./handlers/stop-monitor");
 
 program.version("1.0.0").description("CLI for Data Visualisation");
 
@@ -35,9 +37,10 @@ program
   .description("Start monitoring for an iteration")
   .argument("<experimentTitle>", "Experiment Title")
   .argument("<iterationTitle>", "Iteration Title")
+  .argument("<interval>", "Interval in seconds")
   // TODO: Add monitor metrics
-  .action((experimentTitle, iterationTitle) => {
-    console.log(experimentTitle, iterationTitle);
+  .action((experimentTitle, iterationTitle, interval) => {
+    startMonitor(experimentTitle, iterationTitle, interval);
   });
 
 program
@@ -46,7 +49,7 @@ program
   .alias("stop")
   .description("Stop monitoring for an iteration")
   .action(() => {
-    console.log("stop");
+    stopMonitor();
   });
 
 program.parse(process.argv);
