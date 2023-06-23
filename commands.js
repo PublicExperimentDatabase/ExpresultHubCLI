@@ -2,6 +2,7 @@
 const program = require("commander");
 const { createExperiment } = require("./handlers/add-experiment");
 const { createIteration } = require("./handlers/add-iteration");
+const { createBucket } = require("./handlers/add-bucket");
 const { startMonitor } = require("./handlers/start-monitor");
 const { stopMonitor } = require("./handlers/stop-monitor");
 
@@ -19,15 +20,27 @@ program
   });
 
 program
+  .command("add-bucket")
+  .alias("addbu")
+  .description("Add an Bucket")
+  .argument("<experimentTitle>", "Experiment Title")
+  .argument("<bucketTitle>", "Bucket Title")
+  .argument("[description]", "Iteration description")
+  .action((experimentTitle, bucketTitle, description) => {
+    createBucket(experimentTitle, bucketTitle, description);
+  });
+
+program
   .command("add-iteration")
   .alias("additr")
   .alias("aitr")
   .description("Add an Iteration")
   .argument("<experimentTitle>", "Experiment Title")
   .argument("<iterationTitle>", "Iteration Title")
+  .argument("<bucketTitle>", "Bucket Title")
   .argument("[description]", "Iteration description")
-  .action((experimentTitle, iterationTitle, description) => {
-    createIteration(experimentTitle, iterationTitle, description);
+  .action((experimentTitle, bucketTitle, iterationTitle, description) => {
+    createIteration(experimentTitle, bucketTitle, iterationTitle, description);
   });
 
 program
@@ -36,11 +49,12 @@ program
   .alias("start")
   .description("Start monitoring for an iteration")
   .argument("<experimentTitle>", "Experiment Title")
+  .argument("<bucketTitle>", "Bucket Title")
   .argument("<iterationTitle>", "Iteration Title")
   .argument("<interval>", "Interval in seconds")
   // TODO: Add monitor metrics
-  .action((experimentTitle, iterationTitle, interval) => {
-    startMonitor(experimentTitle, iterationTitle, interval);
+  .action((experimentTitle, bucketTitle, iterationTitle, interval) => {
+    startMonitor(experimentTitle, bucketTitle, iterationTitle, interval);
   });
 
 program

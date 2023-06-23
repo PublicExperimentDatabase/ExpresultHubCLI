@@ -1,12 +1,11 @@
-const createIteration = async (experimentTitle, bucketTitle, iterationTitle, description) => {
+const createBucket = async (experimentTitle, bucketTitle, description) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/iteration/create`, {
+    const response = await fetch(`http://localhost:3000/api/bucket/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         experimentTitle: experimentTitle,
         bucketTitle: bucketTitle,
-        iterationTitle: iterationTitle,
         description: description,
       }),
     });
@@ -23,5 +22,5 @@ const createIteration = async (experimentTitle, bucketTitle, iterationTitle, des
 };
 
 module.exports = {
-  createIteration,
+  createBucket,
 };
