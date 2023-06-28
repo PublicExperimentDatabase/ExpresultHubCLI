@@ -1,12 +1,12 @@
-const startMonitor = async (experimentTitle, bucketTitle, iterationTitle, interval) => {
+const startMonitor = async (experimentName, bucketName, iterationName, interval) => {
   try {
     const response = await fetch(`http://localhost:3000/api/monitor/start`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        experimentTitle: experimentTitle,
-        bucketTitle: bucketTitle,
-        iterationTitle: iterationTitle,
+        experimentName: experimentName,
+        bucketName: bucketName,
+        iterationName: iterationName,
         interval: interval,
       }),
     });

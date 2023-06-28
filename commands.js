@@ -13,21 +13,21 @@ program
   .alias("addexp")
   .alias("aexp")
   .description("Add an experiment")
-  .argument("<title>", "Experiment Title")
+  .argument("<name>", "Experiment Name")
   .argument("[description]", "Experiment description")
-  .action((title, description) => {
-    createExperiment(title, description);
+  .action((name, description) => {
+    createExperiment(name, description);
   });
 
 program
   .command("add-bucket")
   .alias("addbu")
   .description("Add an Bucket")
-  .argument("<experimentTitle>", "Experiment Title")
-  .argument("<bucketTitle>", "Bucket Title")
+  .argument("<experimentName>", "Experiment Name")
+  .argument("<bucketName>", "Bucket Name")
   .argument("[description]", "Iteration description")
-  .action((experimentTitle, bucketTitle, description) => {
-    createBucket(experimentTitle, bucketTitle, description);
+  .action((experimentName, bucketName, description) => {
+    createBucket(experimentName, bucketName, description);
   });
 
 program
@@ -35,12 +35,12 @@ program
   .alias("additr")
   .alias("aitr")
   .description("Add an Iteration")
-  .argument("<experimentTitle>", "Experiment Title")
-  .argument("<iterationTitle>", "Iteration Title")
-  .argument("<bucketTitle>", "Bucket Title")
+  .argument("<experimentName>", "Experiment Name")
+  .argument("<iterationName>", "Iteration Name")
+  .argument("<bucketName>", "Bucket Name")
   .argument("[description]", "Iteration description")
-  .action((experimentTitle, bucketTitle, iterationTitle, description) => {
-    createIteration(experimentTitle, bucketTitle, iterationTitle, description);
+  .action((experimentName, bucketName, iterationName, description) => {
+    createIteration(experimentName, bucketName, iterationName, description);
   });
 
 program
@@ -48,13 +48,13 @@ program
   .alias("smon")
   .alias("start")
   .description("Start monitoring for an iteration")
-  .argument("<experimentTitle>", "Experiment Title")
-  .argument("<bucketTitle>", "Bucket Title")
-  .argument("<iterationTitle>", "Iteration Title")
+  .argument("<experimentName>", "Experiment Name")
+  .argument("<bucketName>", "Bucket Name")
+  .argument("<iterationName>", "Iteration Name")
   .argument("<interval>", "Interval in seconds")
   // TODO: Add monitor metrics
-  .action((experimentTitle, bucketTitle, iterationTitle, interval) => {
-    startMonitor(experimentTitle, bucketTitle, iterationTitle, interval);
+  .action((experimentName, bucketName, iterationName, interval) => {
+    startMonitor(experimentName, bucketName, iterationName, interval);
   });
 
 program

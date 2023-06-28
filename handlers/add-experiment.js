@@ -1,9 +1,9 @@
-const createExperiment = async (title, description) => {
+const createExperiment = async (name, description) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/experiment/create`, {
+    const response = await fetch(`http://localhost:3000/api/experiments`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title, description: description }),
+      body: JSON.stringify({ name: name, description: description }),
     });
 
     if (response.ok) {

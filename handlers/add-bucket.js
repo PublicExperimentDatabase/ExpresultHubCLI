@@ -1,14 +1,16 @@
-const createBucket = async (experimentTitle, bucketTitle, description) => {
+const createBucket = async (experimentName, bucketName, description) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/bucket/create`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        experimentTitle: experimentTitle,
-        bucketTitle: bucketTitle,
-        description: description,
-      }),
-    });
+    const response = await fetch(
+      `http://localhost:3000/api/experiments/${experimentName}/buckets`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          bucketName: bucketName,
+          description: description,
+        }),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
